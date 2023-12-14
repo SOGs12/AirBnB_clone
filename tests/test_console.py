@@ -175,7 +175,6 @@ class TestHBNBCommand_create(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("create State"))
             self.assertLess(0, len(output.getvalue().strip()))
-??? from here until ???END lines may have been inserted/deleted
             testKey = "State.{}".format(output.getvalue().strip())
             self.assertIn(testKey, storage.all().keys())
         with patch("sys.stdout", new=StringIO()) as output:
@@ -898,7 +897,6 @@ class TestHBNBCommand_update(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("update BaseModel"))
             self.assertEqual(correct, output.getvalue().strip())
-
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("update User"))
             self.assertEqual(correct, output.getvalue().strip())
